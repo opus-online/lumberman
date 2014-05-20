@@ -1,7 +1,7 @@
 define(function (require) {
     'use strict';
 
-    var Destination = require('Lumberman/Destination');
+    var BaseDestination = require('Lumberman/destination/Base');
     var SimpleLogger = require('Lumberman/SimpleLogger');
 
     /**
@@ -39,10 +39,10 @@ define(function (require) {
 
     /**
      * Add a new destination for logs
-     * @param {Destination} destination
+     * @param {BaseDestination} destination
      */
     Logger.prototype.addDestination = function (destination) {
-        if (!(destination instanceof Destination)) {
+        if (!(destination instanceof BaseDestination)) {
             throw new Error('Invalid destination');
         }
         this.destinations.push(destination);

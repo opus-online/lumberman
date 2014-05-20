@@ -2,7 +2,8 @@ define(function (require) {
     'use strict';
 
     var Logger = require('Lumberman/Logger');
-    var Destination = require('Lumberman/Destination');
+    var BaseDestination = require('Lumberman/destination/Base');
+    var ConsoleDestination = require('Lumberman/destination/Console');
     var SimpleLogger = require('Lumberman/SimpleLogger');
 
     describe('logger', function () {
@@ -26,16 +27,23 @@ define(function (require) {
 
             var logger = new Logger();
             var simpleLogger = logger.getLogger('application');
-            var destination = new Destination();
 
-            logger.addDestination(destination);
+            var baseDestination = new BaseDestination();
+            var consoleDestination = new ConsoleDestination();
 
+            logger.addDestination(baseDestination);
+            logger.addDestination(consoleDestination);
 
             ['debug', 'info', 'warn', 'error', 'exception'].forEach(function (level) {
-                spyOn(destination, level);
+
+                spyOn(baseDestination, level);
+                spyOn(consoleDestination, level);
+
                 simpleLogger[level]('Testing');
 
-                expect(destination[level]).toHaveBeenCalled();
+                expect(baseDestination[level]).toHaveBeenCalled();
+                expect(consoleDestination[level]).toHaveBeenCalled();
+
             });
 
         });

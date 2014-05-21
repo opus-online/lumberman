@@ -6,17 +6,17 @@ define(function () {
      * The default implementation throws errors, you should overwrite the functions to
      * @constructor
      */
-    function Destination() {
+    function Transport() {
 
     }
 
     ['debug', 'info', 'warn','error', 'exception'].forEach(function (level) {
-        Destination.prototype[level] = function () {
+        Transport.prototype[level] = function () {
             throw new Error('Not implemented');
         };
     });
 
-    return Destination;
+    return Transport;
 });
 
 

@@ -1,23 +1,27 @@
 {
-  "name": "Lumberman",
-  "version": "0.0.0",
-  "homepage": "https://github.com/opus-online/lumberman",
-  "authors": [
-    "Peeter <peeter.tomberg@gmail.com>"
-  ],
-  "description": "A Javascript logger for the browser",
-  "moduleType": [
-    "amd"
-  ],
-  "keywords": [
-    "logger"
-  ],
-  "license": "MIT",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test"
-  ]
+    "name": "Lumberman",
+    "version": "0.0.1",
+    "homepage": "https://github.com/opus-online/lumberman",
+    "authors": [
+        "Peeter <peeter.tomberg@gmail.com>"
+    ],
+    "description": "A Javascript logger for the browser",
+    "moduleType": [
+        "amd"
+    ],
+    "keywords": [
+        "logger"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "karma.conf.js",
+        "package.json",
+        ".travis.yml",
+        ".jshintrc",
+        ".gitignore"
+    ]
 }

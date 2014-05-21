@@ -1,7 +1,7 @@
 define(function (require) {
     'use strict';
 
-    var SimpleLogger = require('Lumberman/SimpleLogger');
+    var SimpleLogger = require('Lumberman/logger/Simple');
 
     describe('SimpleLogger', function () {
 

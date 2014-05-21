@@ -1,17 +1,17 @@
 define(function (require) {
     'use strict';
 
-    var BaseDestination = require('Lumberman/destination/Base');
+    var BaseTransport = require('Lumberman/transport/Base');
 
     /**
      * This destination will proxy all requests to the console
      * @constructor
      */
-    function ConsoleDestination() {
+    function ConsoleTransport() {
 
     }
 
-    ConsoleDestination.prototype = Object.create(BaseDestination.prototype, {
+    ConsoleTransport.prototype = Object.create(BaseTransport.prototype, {
         debug: {
             value: function(message) {
                 console.debug.apply(console, message);
@@ -38,7 +38,7 @@ define(function (require) {
             }
         }
     });
-    return ConsoleDestination;
+    return ConsoleTransport;
 });
 
 

@@ -20,18 +20,18 @@ bower install lumberman
 
 ### Setup a logger with a console destination
 ```javascript
-    var Logger = require('Lumberman/Logger');
-    var ConsoleDestination = require('Lumberman/destination/Console');
+    var Lumberman = require('Lumberman/Lumberman');
+    var ConsoleTransport = require('Lumberman/transport/Console');
     
-    var logger = new Logger();
-    logger.addDestination(new ConsoleDestination());
+    var lumberman = new Lumberman();
+    lumberman.addTransport(new ConsoleTransport());
     
-    app.logger = logger; 
+    app.lumberman = lumberman;
 ```
 
 ### Usage 
 ```javascript
-   var logger = app.logger.getLogger('loginScreen');
+   var logger = app.lumberman.getLogger('loginScreen');
    
    logger.debug('Debug');
    logger.info('Info');
@@ -48,17 +48,17 @@ bower install lumberman
 define(function (require) {
     'use strict';
 
-    var BaseDestination = require('Lumberman/destination/Base');
+    var BaseTransport = require('Lumberman/transport/Base');
 
     /**
      * This destination will proxy all requests to the console
      * @constructor
      */
-    function CustomDestination() {
+    function CustomTransport() {
 
     }
 
-    CustomDestination.prototype = Object.create(BaseDestination.prototype, {
+    CustomTransport.prototype = Object.create(BaseTransport.prototype, {
         debug: {
             value: function(message) {
                 //Implement your logging output here.
@@ -90,6 +90,6 @@ define(function (require) {
             }
         }
     });
-    return CustomDestination;
+    return CustomTransport;
 });
 ```

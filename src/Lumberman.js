@@ -1,15 +1,15 @@
 define(function (require) {
     'use strict';
 
-    var BaseDestination = require('Lumberman/destination/Base');
-    var SimpleLogger = require('Lumberman/SimpleLogger');
+    var BaseTransport = require('Lumberman/transport/Base');
+    var SimpleLogger = require('Lumberman/logger/Simple');
 
     /**
-     * A Logger that has multiple destinations (e.g. Console, Ajax etc)
+     * A Logger that has multiple transports (e.g. Console, Ajax etc)
      * @constructor
      */
     function Logger() {
-        this.destinations = [];
+        this.transports = [];
     }
 
     /**
@@ -27,25 +27,25 @@ define(function (require) {
     };
 
     /**
-     * Proxies all logs to different destinations
+     * Proxies all logs to different transports
      * @param level
      * @param message
      */
     Logger.prototype.log = function (level, message) {
-        this.destinations.forEach(function (destination) {
+        this.transports.forEach(function (destination) {
             destination[level](message);
         });
     };
 
     /**
      * Add a new destination for logs
-     * @param {BaseDestination} destination
+     * @param {BaseTransport} destination
      */
-    Logger.prototype.addDestination = function (destination) {
-        if (!(destination instanceof BaseDestination)) {
-            throw new Error('Invalid destination');
+    Logger.prototype.addTransport = function (destination) {
+        if (!(destination instanceof BaseTransport)) {
+            throw new Error('Invalid transport');
         }
-        this.destinations.push(destination);
+        this.transports.push(destination);
     };
 
     return Logger;

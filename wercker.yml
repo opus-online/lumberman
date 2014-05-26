@@ -6,7 +6,7 @@ build:
     # A step that executes `npm install` command
     - npm-install
     # Install karma cli
-    - npm-install
+    - npm-install:
       options: "-g karma-cli"
     # A step that executes `npm test` command
     - npm-test

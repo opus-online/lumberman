@@ -1,3 +1,4 @@
+---
 box: wercker/nodejs
 # Build definition
 build:
@@ -6,8 +7,10 @@ build:
     # A step that executes `npm install` command
     - npm-install
     # Install karma cli
-    - npm-install:
-        options: "-g karma-cli"
+    - script:
+        name: install karma-cli globally
+        code: |
+          sudo npm install -g karma-cli
     # A step that executes `npm test` command
     - npm-test
 

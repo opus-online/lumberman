@@ -2,6 +2,7 @@
 --------------
 
 [![Build Status](https://travis-ci.org/opus-online/lumberman.svg?branch=master)](https://travis-ci.org/opus-online/lumberman)
+![Build Status](https://codeship.io/projects/75e69230-c6d7-0131-58a3-76b4695b1d5a/status)
 
 ## Installation
 ```

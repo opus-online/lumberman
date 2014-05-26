@@ -10,34 +10,27 @@ define(function (require) {
     function ConsoleTransport() {
 
     }
-
     ConsoleTransport.prototype = Object.create(BaseTransport.prototype, {
-        debug: {
-            value: function(message) {
-                console.debug.apply(console, message);
-            }
-        },
-        info: {
-            value: function(message) {
-                console.info.apply(console, message);
-            }
-        },
-        warn: {
-            value: function(message) {
-                console.warn.apply(console, message);
-            }
-        },
-        error: {
-            value: function(message) {
-                console.error.apply(console, message);
-            }
-        },
-        exception: {
-            value: function(message) {
-                console.error.apply(console, message);
-            }
-        }
+        constructor: {value: BaseTransport, configurable: true, writeable: true}
     });
+
+    /**
+     * Proxy methods to the console...
+     */
+    ['debug', 'info', 'warn', 'error'].forEach(function (level) {
+        ConsoleTransport.prototype[level] = function (data) {
+            window.console[level].apply(window.console, data);
+        };
+    });
+
+    /**
+     * Special case for exceptions since we don't have a log level "exception"
+     * @param data
+     */
+    ConsoleTransport.prototype.exception = function (data) {
+        window.console.error.apply(window.console, data);
+    };
+
     return ConsoleTransport;
 });
 

@@ -1,6 +1,6 @@
 {
     "name": "Lumberman",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "homepage": "https://github.com/opus-online/lumberman",
     "authors": [
         "Peeter <peeter.tomberg@gmail.com>"
@@ -20,6 +20,7 @@
         "test",
         "karma.conf.js",
         "package.json",
+        "wercker.yml",
         ".travis.yml",
         ".jshintrc",
         ".gitignore"

@@ -19,7 +19,7 @@ define(function (require) {
         });
 
         it('should stringify date', function () {
-            expect(stringifyArguments([date])).toEqual('Sat Oct 08 2011 00:33:17 GMT+0300 (FLE Daylight Time)');
+            expect(stringifyArguments([date])).toEqual('Fri, 07 Oct 2011 21:33:17 GMT');
         });
 
         it('should stringify regex', function () {
@@ -58,7 +58,7 @@ define(function (require) {
 
         it('should work all together', function () {
             var string = stringifyArguments([message, number, boolean, regex, date, obj, undef, null, error]);
-            expect(string).toEqual('message 123 true /asd/i Sat Oct 08 2011 00:33:17 GMT+0300 (FLE Daylight Time) {"hello":"world"} undefined null Error: testing');
+            expect(string).toEqual('message 123 true /asd/i Fri, 07 Oct 2011 21:33:17 GMT {"hello":"world"} undefined null Error: testing');
         });
 
     });

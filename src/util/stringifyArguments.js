@@ -12,7 +12,7 @@ define(function () {
                 return argument.toString();
             }
             else if (argument instanceof Date) {
-                return argument.toString();
+                return argument.toUTCString();
             }
             else if (argument instanceof Error) {
                 return (argument.stack ? argument.stack : 'Error: ' + argument.message);

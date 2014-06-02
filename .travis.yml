@@ -3,8 +3,8 @@ node_js:
   - 0.10
 before_script:
   - 'npm install -g karma-cli'
-  - 'npm install -g codeclimate-test-reporter'
 after_script:
   - 'npm install coveralls@2.10.0 && cat ./coverage/*/lcov.info | coveralls'
-secure: "MXkWkipTRDmypmjFYtJ6+Ahuu4tGtwJ0DxOIf/U1gbEgcs2cxpR52Ew2r/STgM2k5UPSIQ+lWaHT2LTytkm73UKWcCon0ODplaMa7HpnMQiXH3rG3d6A8dVUyrw49XWZq8Rzro/rXufjCg+5/1Fo5K29mAyljKi/O4TZzQMol
-    N8="
+env:
+  global:
+    - secure: "MXkWkipTRDmypmjFYtJ6+Ahuu4tGtwJ0DxOIf/U1gbEgcs2cxpR52Ew2r/STgM2k5UPSIQ+lWaHT2LTytkm73UKWcCon0ODplaMa7HpnMQiXH3rG3d6A8dVUyrw49XWZq8Rzro/rXufjCg+5/1Fo5K29mAyljKi/O4TZzQMolN8="

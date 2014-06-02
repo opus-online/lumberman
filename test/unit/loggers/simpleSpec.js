@@ -23,7 +23,7 @@ define(function (require) {
 
                 var logger = new SimpleLogger('proxy', function (level, message) {
                     expect(level).toEqual(level);
-                    expect(message.join(' ')).toEqual('[NOW][proxy] Testing');
+                    expect(message.join(' ')).toEqual('[NOW] [proxy] Testing');
                 });
 
                 spyOn(logger, 'getTime').and.returnValue('NOW');
@@ -38,7 +38,7 @@ define(function (require) {
 
             var logger = new SimpleLogger('proxy', function (level, message) {
                 expect(level).toEqual('exception');
-                expect(message.join(' ')).toEqual('[NOW][proxy] Testing');
+                expect(message.join(' ')).toEqual('[NOW] [proxy] Testing');
             });
 
             spyOn(logger, 'getTime').and.returnValue('NOW');

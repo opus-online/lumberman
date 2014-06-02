@@ -47,7 +47,8 @@ define(function () {
      */
     SimpleLogger.prototype.prependData = function () {
         var args = Array.prototype.slice.call(arguments);
-        args.unshift('[' + this.getTime() + '][' + this.name + ']');
+        args.unshift('[' + this.name + ']');
+        args.unshift('[' + this.getTime() + ']');
         return args;
     };
 

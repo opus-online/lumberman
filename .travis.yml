@@ -7,4 +7,5 @@ after_script:
   - 'npm install coveralls@2.10.0 && cat ./coverage/*/lcov.info | coveralls'
 env:
   global:
-    - secure: "MXkWkipTRDmypmjFYtJ6+Ahuu4tGtwJ0DxOIf/U1gbEgcs2cxpR52Ew2r/STgM2k5UPSIQ+lWaHT2LTytkm73UKWcCon0ODplaMa7HpnMQiXH3rG3d6A8dVUyrw49XWZq8Rzro/rXufjCg+5/1Fo5K29mAyljKi/O4TZzQMolN8="
+    - COVERALLS_SERVICE_NAME="Travis CI"
+    - secure: "lU4nF9VnSPV4wqT99h6hTQ+A5RwIyUCFnsgTwXAenRiryi/6aSrSk+nkBaAKLoktMffjJVYwFGpxI28H8fKqNHv87MAYVWlhIzoytmXaOkARMIR4ZXBvH5fDaR65THNHwzTbcUXrj4R/fV1cdN3mg5dx8+rtHOeNE2n47l9DlMk="

@@ -8,6 +8,7 @@ A logger meant for the browser environment. Supports multiple destinations.
 
 Built in support for
 * Console
+* [AJAX](#using-the-console-and-ajax-transport-together)
 * [Loggly](#using-the-console-and-loggly-transport-together)
 * [Sentry](#using-the-console-and-sentry-transport-together)
 
@@ -54,6 +55,20 @@ define(function (require) {
 #### Result
 ![Result](http://puu.sh/8UedZ.png)
 
+### Using the console and ajax transport together
+```javascript
+define(function (require) {
+    'use strict';
+
+    var Lumberman = require('Lumberman/Lumberman');
+    var ConsoleTransport = require('Lumberman/transport/Console');
+    var AjaxTransport = require('Lumberman/transport/Ajax');
+
+    app.lumberman = new Lumberman();
+    app.lumberman.addTransport(new ConsoleTransport());
+    app.lumberman.addTransport(new AjaxTransport('YOUR URL HERE', { 'url_arguments_key' : 'value' }));
+});
+```
 
 ### Using the console and loggly transport together
 ```javascript

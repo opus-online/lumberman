@@ -45,7 +45,7 @@ define(function (require) {
      * @returns {string}
      */
     AjaxTransport.prototype.getUrl = function (level, data) {
-        return [this.url, '?', this.stringifyParameters(this.params)].join('') + (objectSize(this.params) > 0 ? '?' : '') + 'level=' + level + '&message=' + encodeURIComponent(stringifyArguments(data));
+        return [this.url, '?', this.stringifyParameters(this.params)].join('') + (objectSize(this.params) > 0 ? '&' : '') + 'level=' + level + '&message=' + encodeURIComponent(stringifyArguments(data));
     };
 
     AjaxTransport.prototype.stringifyParameters = function (params) {

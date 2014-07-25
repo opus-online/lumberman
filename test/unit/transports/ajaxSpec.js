@@ -18,7 +18,7 @@ define(function (require) {
 
             ['debug', 'info', 'warn', 'error'].forEach(function (level) {
                 var url = destination.getUrl(level, [message, obj]);
-                expect(url).toEqual('localhost?paramKey=paramValue?level=' + level + '&message=message%20%7B%22hello%22%3A%22world%22%7D');
+                expect(url).toEqual('localhost?paramKey=paramValue&level=' + level + '&message=message%20%7B%22hello%22%3A%22world%22%7D');
             });
 
         });

@@ -1,7 +1,7 @@
 # Lumberman
 --------------
 
-[![Build Status](https://travis-ci.org/opus-online/lumberman.svg?branch=master)](https://travis-ci.org/opus-online/lumberman)
+[ ![Codeship Status for opus-online/lumberman](https://codeship.io/projects/75e69230-c6d7-0131-58a3-76b4695b1d5a/status?branch=master)](https://codeship.io/projects/22101)
 [![Coverage Status](https://coveralls.io/repos/opus-online/lumberman/badge.png?branch=master)](https://coveralls.io/r/opus-online/lumberman?branch=master)
 
 A logger meant for the browser environment. Supports multiple destinations. 

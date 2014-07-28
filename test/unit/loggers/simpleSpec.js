@@ -38,7 +38,10 @@ define(function (require) {
 
             var logger = new SimpleLogger('proxy', function (level, message) {
                 expect(level).toEqual('exception');
-                expect(message.join(' ')).toEqual('[NOW] [proxy] Testing');
+                expect(message[0]).toEqual('[NOW]');
+                expect(message[1]).toEqual('[proxy]');
+                expect(message[2]).toEqual('Testing');
+
             });
 
             spyOn(logger, 'getTime').and.returnValue('NOW');

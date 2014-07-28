@@ -11,8 +11,8 @@ define(function (require) {
         var obj = { hello : 'world' };
         var regex = new RegExp('asd', 'i');
         var date = new Date(1318023197289);
-        var undef;
         var error = new Error('testing');
+        error.stack = undefined; //Some browsers append the stack, some don't
 
         it('should json encode objects', function () {
             expect(stringifyArguments([obj])).toEqual('{"hello":"world"}');

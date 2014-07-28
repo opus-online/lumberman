@@ -13,14 +13,17 @@ module.exports = function (config) {
         sl_chrome: {
             base: 'SauceLabs',
             browserName: 'chrome',
-            platform: 'Windows 7'
+            platform: 'Windows 7',
+            version : '36'
         }
     };
 
     config.set({
 
         sauceLabs: {
-            testName: 'Ostentus unit tests'
+            testName: 'Ostentus unit tests',
+            username : 'peetertomberg',
+            accessKey : '1cc5af63-0e74-4ec5-95c6-e2c9f121a9f3'
         },
         customLaunchers: customLaunchers,
 

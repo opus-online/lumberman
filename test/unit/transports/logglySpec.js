@@ -50,6 +50,7 @@ define(function (require) {
         it('should proxy exceptions to the log function', function () {
             var destination = new LogglyTransport('token');
             var error = new Error('testing');
+            error.stack = undefined; //Some browsers append the stack, some don't
             spyOn(destination, 'log');
             destination.exception([error]);
             expect(destination.log).toHaveBeenCalledWith(destination.LOGGLY_BASE_PATH + 'token/tag//1*1.gif?level=error&message=Error%3A%20testing');

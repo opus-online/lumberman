@@ -1,0 +1,20 @@
+20140728 170314.998 [06132] CLI Starting up; pid 6132
+20140728 170314.998 [06132] CLI Sauce Connect 4.3, build 1285 bd6579a
+20140728 170314.998 [06132] CLI Command line arguments: C:\workspace\_VIRTUAL\Logger\node_modules\karma-sauce-launcher\node_modules\sauce-connect-launcher\sc\sc-4.3-win32\bin\sc -u peetertomberg -k **** --tunnel-identifier karma1406556150 --readyfile C:\Users\PEETER~1.OPU\AppData\Local\Temp\sc-launcher-readyfile
+20140728 170314.998 [06132] CLI Using no proxy for connecting to Sauce Labs REST API.
+20140728 170316.708 [06132] CLI Started scproxy on port 62322.
+20140728 170316.709 [06132] CLI Please wait for 'you may start your tests' to start your tests.
+20140728 170316.709 [06132] CLI Starting secure remote tunnel VM...
+20140728 170325.152 [06132] CLI Secure remote tunnel VM provisioned.
+20140728 170325.152 [06132] CLI Tunnel ID: 1a07c3f8eb9d42e0887b5ac756122eca
+20140728 170326.491 [06132] CLI Secure remote tunnel VM is now: booting
+20140728 170357.208 [06132] CLI Secure remote tunnel VM is now: running
+20140728 170357.209 [06132] CLI Remote tunnel host is: maki76169.miso.saucelabs.com
+20140728 170357.209 [06132] CLI Using no proxy for connecting to tunnel VM.
+20140728 170357.210 [06132] CLI Starting Selenium listener...
+20140728 170357.210 [06132] CLI Establishing secure TLS connection to tunnel...
+20140728 170357.220 [06132] CLI Selenium listener started on port 4445.
+20140728 170407.487 [06132] CLI Sauce Connect is up, you may start your tests.
+20140728 170407.487 [06132] CLI Connection established.
+20140728 170522.994 [06132] CLI Cleaning up.
+20140728 170522.995 [06132] CLI Finished! Deleting tunnel.

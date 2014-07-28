@@ -35,6 +35,7 @@ define(function (require) {
         it('should proxy exceptions to the log function', function () {
             var destination = new AjaxTransport('localhost');
             var error = new Error('testing');
+            error.stack = undefined; //Some browsers append the stack, some don't
             spyOn(destination, 'log');
             destination.exception([error]);
             expect(destination.log).toHaveBeenCalledWith('localhost?level=error&message=Error%3A%20testing');

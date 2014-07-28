@@ -19,7 +19,7 @@ define(function (require) {
         });
 
         it('should stringify date', function () {
-            expect(stringifyArguments([date])).toEqual('Fri, 07 Oct 2011 21:33:17 GMT');
+            expect(stringifyArguments([date])).toEqual('7.9.2011 21:33:17 UTC');
         });
 
         it('should stringify regex', function () {
@@ -37,7 +37,7 @@ define(function (require) {
             expect(stringifyArguments([false])).toEqual('false');
         });
         it('should return string for undefined', function () {
-            expect(stringifyArguments([undef])).toEqual('undefined');
+            expect(stringifyArguments([undefined])).toEqual('undefined');
         });
         it('should return string for null', function () {
             expect(stringifyArguments([null])).toEqual('null');
@@ -47,18 +47,9 @@ define(function (require) {
             expect(stringifyArguments([error])).toEqual('Error: testing');
         });
 
-        it('should return string for error with stack trace', function () {
-            try {
-                throw new Error('testing2');
-            }
-            catch(error) {
-                expect(stringifyArguments([error])).toEqual('' + error.stack);
-            }
-        });
-
         it('should work all together', function () {
-            var string = stringifyArguments([message, number, boolean, regex, date, obj, undef, null, error]);
-            expect(string).toEqual('message 123 true /asd/i Fri, 07 Oct 2011 21:33:17 GMT {"hello":"world"} undefined null Error: testing');
+            var string = stringifyArguments([message, number, boolean, regex, date, obj, undefined, null, error]);
+            expect(string).toEqual('message 123 true /asd/i 7.9.2011 21:33:17 UTC {"hello":"world"} undefined null Error: testing');
         });
 
     });

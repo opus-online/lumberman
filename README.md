@@ -101,4 +101,4 @@ define(function (require) {
 ```
 ### Browser compatibility
 
-IE9 and up
+IE8 and up

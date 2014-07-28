@@ -4,12 +4,13 @@
     var allTestFiles = [];
     var TEST_REGEXP = /Spec\.js$/;
 
-    Object.keys(window.__karma__.files).forEach(function (file) {
-        if (TEST_REGEXP.test(file)) {
+    var files = window.__karma__.files;
+    for(var key in files) {
+        if (TEST_REGEXP.test(key)) {
             // Normalize paths to RequireJS module names.
-            allTestFiles.push(file);
+            allTestFiles.push(key);
         }
-    });
+    }
 
     var requirejsConfig = {
         baseUrl : '/base',
@@ -21,4 +22,14 @@
     };
     require.config(requirejsConfig);
 
+    /**
+     * Overwrite the prototype for tests
+     */
+    if (typeof Array.prototype.forEach != 'function') {
+        Array.prototype.forEach = function(callback){
+            for (var i = 0; i < this.length; i += 1) {
+                callback.apply(this, [this[i], i, this]);
+            }
+        };
+    }
 })();

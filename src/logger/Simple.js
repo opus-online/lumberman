@@ -1,5 +1,7 @@
-define(function () {
+define(function (require) {
     'use strict';
+
+    var forEach = require('Lumberman/util/forEach');
 
     /**
      * A simple logger that prepends logs with data and proxies all calls
@@ -52,9 +54,7 @@ define(function () {
         return args;
     };
 
-
-
-    ['debug', 'info','warn', 'error'].forEach(function (level) {
+    forEach(['debug', 'info','warn', 'error'], function (level) {
         SimpleLogger.prototype[level] = function () {
             this.callback(level, this.prependData.apply(this, arguments));
         };

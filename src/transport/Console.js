@@ -1,6 +1,8 @@
 define(function (require) {
     'use strict';
 
+    var forEach = require('Lumberman/util/forEach');
+    var inherit = require('Lumberman/util/inherit');
     var BaseTransport = require('Lumberman/transport/Base');
 
     /**
@@ -10,14 +12,12 @@ define(function (require) {
     function ConsoleTransport() {
 
     }
-    ConsoleTransport.prototype = Object.create(BaseTransport.prototype, {
-        constructor: {value: BaseTransport, configurable: true, writeable: true}
-    });
+    ConsoleTransport.prototype = inherit(BaseTransport.prototype);
 
     /**
      * Proxy methods to the console...
      */
-    ['debug', 'info', 'warn', 'error'].forEach(function (level) {
+    forEach(['debug', 'info', 'warn', 'error'], function (level) {
         ConsoleTransport.prototype[level] = function (data) {
             window.console[level].apply(window.console, data);
         };

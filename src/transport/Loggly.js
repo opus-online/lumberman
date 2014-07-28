@@ -3,6 +3,8 @@ define(function (require) {
 
     var BaseTransport = require('Lumberman/transport/Base');
     var stringifyArguments = require('Lumberman/util/stringifyArguments');
+    var forEach = require('Lumberman/util/forEach');
+    var inherit = require('Lumberman/util/inherit');
 
     /**
      * This transport sends logs to Loggly
@@ -23,9 +25,7 @@ define(function (require) {
      * Extending the BaseTransport
      * @type {BaseTransport.prototype}
      */
-    LogglyTransport.prototype = Object.create(BaseTransport.prototype, {
-        constructor: {value: BaseTransport, configurable: true, writeable: true}
-    });
+    LogglyTransport.prototype = inherit(BaseTransport.prototype);
 
     /**
      * The base path for the url
@@ -66,7 +66,7 @@ define(function (require) {
     /**
      * Proxy methods to the log function....
      */
-    ['debug', 'info', 'warn', 'error'].forEach(function (level) {
+    forEach(['debug', 'info', 'warn', 'error'], function (level) {
         LogglyTransport.prototype[level] = function (data) {
             this.log(this.getUrl(level, data));
         };

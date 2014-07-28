@@ -4,6 +4,8 @@ define(function (require) {
     var BaseTransport = require('Lumberman/transport/Base');
     var stringifyArguments = require('Lumberman/util/stringifyArguments');
     var objectSize = require('Lumberman/util/objectSize');
+    var forEach = require('Lumberman/util/forEach');
+    var inherit = require('Lumberman/util/inherit');
 
     /**
      * This transport sends logs to Loggly
@@ -22,9 +24,7 @@ define(function (require) {
      * Extending the BaseTransport
      * @type {BaseTransport.prototype}
      */
-    AjaxTransport.prototype = Object.create(BaseTransport.prototype, {
-        constructor: {value: BaseTransport, configurable: true, writeable: true}
-    });
+    AjaxTransport.prototype = inherit(BaseTransport.prototype);
 
     /**
      * URL parameters to always send to the server
@@ -45,14 +45,16 @@ define(function (require) {
      * @returns {string}
      */
     AjaxTransport.prototype.getUrl = function (level, data) {
-        return [this.url, '?', this.stringifyParameters(this.params)].join('') + (objectSize(this.params) > 0 ? '&' : '') + 'level=' + level + '&message=' + encodeURIComponent(stringifyArguments(data));
+        var baseUrl = [this.url, '?', this.stringifyParameters(this.params)].join('');
+        var baseData = 'level=' + level + '&message=' + encodeURIComponent(stringifyArguments(data));
+        return baseUrl + (objectSize(this.params) > 0 ? '&' : '') + baseData;
     };
 
     AjaxTransport.prototype.stringifyParameters = function (params) {
         var string = '';
-        for (var key in params) {
-            string += encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
-        }
+        forEach(params, function (value, key) {
+            string += encodeURIComponent(key) + '=' + encodeURIComponent(value);
+        });
         return string;
 
     };
@@ -66,7 +68,7 @@ define(function (require) {
     /**
      * Proxy methods to the log function....
      */
-    ['debug', 'info', 'warn', 'error'].forEach(function (level) {
+    forEach(['debug', 'info', 'warn', 'error'], function (level) {
         AjaxTransport.prototype[level] = function (data) {
             this.log(this.getUrl(level, data));
         };

@@ -1,5 +1,7 @@
-define(function () {
+define(function (require) {
     'use strict';
+
+    var forEach = require('Lumberman/util/forEach');
 
     /**
      * A simple destination object.
@@ -10,7 +12,7 @@ define(function () {
 
     }
 
-    ['debug', 'info', 'warn','error', 'exception'].forEach(function (level) {
+    forEach(['debug', 'info', 'warn','error', 'exception'], function (level) {
         Transport.prototype[level] = function () {
             throw new Error('Not implemented');
         };

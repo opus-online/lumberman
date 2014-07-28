@@ -3,6 +3,7 @@ define(function (require) {
 
     var BaseTransport = require('Lumberman/transport/Base');
     var SimpleLogger = require('Lumberman/logger/Simple');
+    var forEach = require('Lumberman/util/forEach');
 
     /**
      * A Logger that has multiple transports (e.g. Console, Ajax etc)
@@ -32,7 +33,7 @@ define(function (require) {
      * @param message
      */
     Logger.prototype.log = function (level, message) {
-        this.transports.forEach(function (destination) {
+        forEach(this.transports, function (destination) {
             destination[level](message);
         });
     };

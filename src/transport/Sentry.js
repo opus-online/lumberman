@@ -2,6 +2,8 @@ define(function (require) {
     'use strict';
 
     var BaseTransport = require('Lumberman/transport/Base');
+    var forEach = require('Lumberman/util/forEach');
+    var inherit = require('Lumberman/util/inherit');
 
     /**
      * Constructor
@@ -14,14 +16,13 @@ define(function (require) {
         }
         this.raven = raven;
     }
-    SentryTransport.prototype = Object.create(BaseTransport.prototype, {
-        constructor: {value: BaseTransport, configurable: true, writeable: true}
-    });
+    SentryTransport.prototype = inherit(BaseTransport.prototype);
+
 
     /**
      * Raven only logs exceptions.
      */
-    ['debug', 'info', 'warn', 'error'].forEach(function (level) {
+    forEach(['debug', 'info', 'warn', 'error'], function (level) {
         SentryTransport.prototype[level] = function () {
 
         };

@@ -3,8 +3,30 @@
 
 module.exports = function (config) {
     'use strict';
+    var customLaunchers = {
+        sl_ie_11: {
+            base: 'SauceLabs',
+            browserName: 'internet explorer',
+            platform: 'Windows XP',
+            version: '8'
+        },
+        sl_chrome: {
+            base: 'SauceLabs',
+            browserName: 'chrome',
+            platform: 'Windows 7'
+        }
+    };
 
     config.set({
+
+        sauceLabs: {
+            testName: 'Ostentus unit tests'
+        },
+        customLaunchers: customLaunchers,
+
+        // start these browsers
+        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+        browsers: Object.keys(customLaunchers),
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
@@ -39,7 +61,7 @@ module.exports = function (config) {
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress', 'coverage'],
+        reporters: ['progress', 'coverage', 'saucelabs'],
 
         coverageReporter: {
             type : 'lcovonly',
@@ -61,12 +83,6 @@ module.exports = function (config) {
 
         // enable / disable watching file and executing tests whenever any file changes
         autoWatch: true,
-
-
-        // start these browsers
-        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS'],
-
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
